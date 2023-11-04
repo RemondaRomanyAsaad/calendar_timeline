@@ -73,7 +73,8 @@ class _HomePageState extends State<HomePage> {
               activeBackgroundDayColor: Colors.redAccent[100],
               dotsColor: const Color(0xFF333A47),
               selectableDayPredicate: (date) => date.day != 23,
-              locale: 'en',
+              locale: 'en', dayHeight: 40,
+                mounthHeight: 70,
             ),
             const SizedBox(height: 20),
             Padding(

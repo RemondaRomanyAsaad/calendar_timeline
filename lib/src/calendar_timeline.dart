@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:calendar_timeline/src/day_item.dart';
 import 'package:calendar_timeline/src/month_item.dart';
 import 'package:calendar_timeline/src/util/utils.dart';
@@ -16,6 +18,9 @@ typedef OnDateSelected = void Function(DateTime);
 class CalendarTimeline extends StatefulWidget {
   CalendarTimeline({
     Key? key,
+    this.yearHeight,
+    required this.dayHeight,
+    required this.mounthHeight,
     required this.initialDate,
     required this.firstDate,
     required this.lastDate,
@@ -66,6 +71,9 @@ class CalendarTimeline extends StatefulWidget {
   final Color? dayNameColor;
   final bool shrink;
   final String? locale;
+  final double ? yearHeight;
+  final double dayHeight;
+  final double mounthHeight;
 
   /// If true, it will show a separate row for the years.
   /// It defaults to false
@@ -325,7 +333,7 @@ class _CalendarTimelineState extends State<CalendarTimeline> {
   Widget _buildYearList() {
     return SizedBox(
       key: const Key('ScrollableYearList'),
-      height: 40,
+      height:widget.yearHeight??40 ,
       child: ScrollablePositionedList.builder(
         initialScrollIndex: _yearSelectedIndex ?? 0,
         initialAlignment: _scrollAlignment,
@@ -371,7 +379,7 @@ class _CalendarTimelineState extends State<CalendarTimeline> {
   /// months in the calendar and the small version of [YearItem] for each year in between
   Widget _buildMonthList() {
     return SizedBox(
-      height: 30,
+      height: widget.mounthHeight,
       child: ScrollablePositionedList.builder(
         initialScrollIndex: _monthSelectedIndex ?? 0,
         initialAlignment: _scrollAlignment,
@@ -430,7 +438,7 @@ class _CalendarTimelineState extends State<CalendarTimeline> {
   Widget _buildDayList() {
     return SizedBox(
       key: const Key('ScrollableDayList'),
-      height: 70,
+      height: widget.dayHeight,
       child: ScrollablePositionedList.builder(
         itemScrollController: _controllerDay,
         initialScrollIndex: _daySelectedIndex ?? 0,
