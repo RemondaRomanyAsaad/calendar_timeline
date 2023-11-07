@@ -71,7 +71,7 @@ class CalendarTimeline extends StatefulWidget {
   final Color? dayNameColor;
   final bool shrink;
   final String? locale;
-  final double ? yearHeight;
+  final double? yearHeight;
   final double dayHeight;
   final double mounthHeight;
 
@@ -333,7 +333,7 @@ class _CalendarTimelineState extends State<CalendarTimeline> {
   Widget _buildYearList() {
     return SizedBox(
       key: const Key('ScrollableYearList'),
-      height:widget.yearHeight??40 ,
+      height: widget.yearHeight ?? 40,
       child: ScrollablePositionedList.builder(
         initialScrollIndex: _yearSelectedIndex ?? 0,
         initialAlignment: _scrollAlignment,

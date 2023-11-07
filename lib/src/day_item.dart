@@ -34,7 +34,7 @@ class DayItem extends StatelessWidget {
           ? dayColor ?? Theme.of(context).colorScheme.secondary
           : dayColor?.withOpacity(0.5) ??
               Theme.of(context).colorScheme.secondary.withOpacity(0.5),
-      fontSize: shrink ? 14 : 32,
+      fontSize: shrink ? 12 : 28,
       fontWeight: FontWeight.normal,
     );
     final selectedStyle = TextStyle(
@@ -54,7 +54,7 @@ class DayItem extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
               )
             : const BoxDecoration(color: Colors.transparent),
-        height: shrink ? 40 : 70,
+        height:70,
         width: shrink ? 33 : 60,
         child: Column(
           children: <Widget>[
